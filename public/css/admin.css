@@ -1,0 +1,13 @@
+.form-answer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+div#form-sum {
+    padding: 20px;
+    border: 1px solid #eae2e2;
+    background: #fbf2f2;
+}
+.question-exam {
+    cursor: pointer !important;
+}
