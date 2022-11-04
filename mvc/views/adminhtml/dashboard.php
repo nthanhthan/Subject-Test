@@ -26,8 +26,12 @@
                     <?php $count = 1; ?>
                     <?php foreach ($data['history'] as $item): ?>
                         <?php 
-                            $result = explode("/", $item['result']); 
-                            $score = $result[0]*(10/$result[1]);
+                            $result = explode("/", $item['result']);
+                            if($result[1] == 0){
+                                $score = 10;
+                            }else {
+                                $score = $result[0] * (10 / $result[1]);
+                            }
                         ?>
                         <tr>
                             <td><?= $count ?></td>

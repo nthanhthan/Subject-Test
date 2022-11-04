@@ -111,8 +111,20 @@ class Exam extends Controller
 
         try {
             $questionIdArr = explode(',', $questionIds);
-
+            echo $questionIds;
+            $questionIdArrReal = array();
+            foreach ($questionIdArr as $qi){
+                $questionIdArrReal[] = intval(preg_replace('/[^0-9]+/', '', $qi), 10);
+            }
+            $questionIdArr = $questionIdArrReal;
+            $questionIdArr = array_unique($questionIdArr);
+            foreach($questionIdArr as $qi){
+                echo $qi;
+                echo ";";
+            }
+            return ;
             if (!empty($id)) {
+
                 $this->updateExam($id, $name, $description, $level, $themeId, $pass, $time);
                 $this->deleteMappingById($id);
                 $this->insertQuestionMapping($questionIdArr, $id);
